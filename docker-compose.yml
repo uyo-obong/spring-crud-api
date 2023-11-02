@@ -1,0 +1,17 @@
+version: "3"
+services:
+  db:
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: legendary
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: simple_block
+      PGDATA: /var/lib/postgresql/data/pgdata_storage
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
